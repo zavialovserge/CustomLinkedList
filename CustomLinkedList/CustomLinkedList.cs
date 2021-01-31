@@ -39,7 +39,7 @@ namespace CustomLinkedList
             {
                 if (current.Value.Equals(value))
                 {
-                    if (previous == null)
+                    if (previous != null)
                     {
                         previous.Next = current.Next;
                         if (current.Next == null)
