@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using System.Linq;
 
 namespace CustomLinkedList.UnitTest
 {
@@ -79,7 +79,34 @@ namespace CustomLinkedList.UnitTest
             Assert.AreEqual(node.Value,result.Value);
         }
 
+        [DataTestMethod]
+        [DataRow(new string[] { "Test1", "Test2", "Test3" })]
+        [DataRow(new string[] { "1" })]
+        [DataRow(new string[] { " ", " ", " " })]
+        [DataRow(new string[] { "","",""})]
+        [DataRow(new string[] { null, null, null })]
 
+        public void Array_Of_Values_Are_Equal(string[] values)
+        {
+            _customList = new CustomLinkedList();
+            foreach (var value in values)
+            {
+                _customList.Append(value);
+            }
+
+            Assert.IsTrue(Enumerable.SequenceEqual(values, _customList.GetAllValues()));
+        }
+        [DataTestMethod]
+        [DataRow(new string[] { "Test3", "Test2", "Test1" })]
+        [DataRow(new string[] { "1" })]
+        [DataRow(new string[] { " ", " ", " " })]
+        [DataRow(new string[] { "", "", "" })]
+        [DataRow(new string[] { null, null, null })]
+
+        public void Array_Of_Values_Are_Not_Equal(string[] values)
+        {           
+            Assert.IsFalse(Enumerable.SequenceEqual(values, _customList.GetAllValues()));
+        }
 
     }
 }
