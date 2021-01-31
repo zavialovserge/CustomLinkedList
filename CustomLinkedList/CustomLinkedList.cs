@@ -31,7 +31,7 @@ namespace CustomLinkedList
         /// </summary>
         /// <param name="node">Node</param>
         /// <returns></returns>
-        protected override bool DeleteNode(string value)
+        public override bool DeleteNode(string value)
         {
             Node previous = null;
             Node current = _head;
@@ -45,10 +45,12 @@ namespace CustomLinkedList
                         if (current.Next == null)
                         {
                             _tail = previous;
-                        }
+                        }                    
+                                               
+                    }
+                    else
+                    {
                         _head = _head.Next;
-
-                        // Список теперь пустой?
                         if (_head == null)
                         {
                             _tail = null;
