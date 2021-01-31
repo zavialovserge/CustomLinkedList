@@ -1,0 +1,4 @@
+D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\CustomLinkedList.csprojAssemblyReference.cache
+D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\CustomLinkedList.AssemblyInfoInputs.cache
+D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\CustomLinkedList.AssemblyInfo.cs
+D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\CustomLinkedList.csproj.CoreCompileInputs.cache
