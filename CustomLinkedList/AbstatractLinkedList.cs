@@ -15,7 +15,7 @@ namespace CustomLinkedList
         /// </summary>
         public T _tail;
         public abstract void Append(string value);
-        protected abstract bool DeleteNode(string value);
+        public abstract bool DeleteNode(string value);
         /// <summary>
         /// 
         /// </summary>
