@@ -19,7 +19,7 @@ namespace CustomLinkedList.UnitTest
 
         [TestMethod]
         public void Check_List_Count()
-        {            
+        {
             Assert.AreEqual(3, _customList.Count);
         }
         [TestMethod]
@@ -47,6 +47,39 @@ namespace CustomLinkedList.UnitTest
             string value = "Test3";
             Assert.AreEqual(value, _customList.Tail.Value);
         }
+
+        [DataTestMethod]
+        [DataRow("Test1")]
+        [DataRow("Test2")]
+        [DataRow("Test3")]
+        public void Check_Value_Exist(string value)
+        {
+            Node node = new Node(value);
+            var result = _customList.ContainsValue(value);
+            Assert.AreEqual(node.Value, result.Value);
+        }
+        [DataTestMethod]
+        [DataRow("TEst1")]
+        [DataRow("")]
+        [DataRow(null)]
+        [DataRow("Test")]
+        public void Check_Value_Not_Exist(string value)
+        {
+            Node node = new Node(value);
+            Node result = _customList.ContainsValue(value);
+            Assert.IsNull(result);
+        }
         
+        [TestMethod]
+        public void Check_Null_Adiing()
+        {
+            _customList.Append(null);
+            Node node = new Node(null);
+            Node result = _customList.ContainsValue(null);
+            Assert.AreEqual(node.Value,result.Value);
+        }
+
+
+
     }
 }

@@ -20,7 +20,7 @@ namespace CustomLinkedList
         /// 
         /// </summary>
         /// <param name="value">Value</param>
-        /// <returns>Node</returns>
+        /// <returns>If it contains return Node else return null</returns>
         public T ContainsValue(string value)
         {
             T current_node = Head;
