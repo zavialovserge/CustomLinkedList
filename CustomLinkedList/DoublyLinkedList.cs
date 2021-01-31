@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CustomLinkedList
 {
-    class CustomTwoWayLinkedList : AbstatractLinkedList<TwoWayNode>
+    public class DoublyLinkedList : AbstatractLinkedList<TwoWayNode>
     {
         public override void Append(string value)
         {
