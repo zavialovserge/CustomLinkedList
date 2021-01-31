@@ -9,11 +9,11 @@ namespace CustomLinkedList
         /// <summary>
         /// First element
         /// </summary>
-        public T _head;
+        public T Head { get;set; }
         /// <summary>
         /// Last element
         /// </summary>
-        public T _tail;
+        public T Tail { get; set; }
         public abstract void Append(string value);
         public abstract bool DeleteNode(string value);
         /// <summary>
@@ -23,7 +23,7 @@ namespace CustomLinkedList
         /// <returns>Node</returns>
         public T ContainsValue(string value)
         {
-            T current_node = _head;
+            T current_node = Head;
             while (current_node != null)
             {
                 if (current_node.Value.Equals(value))
@@ -44,7 +44,7 @@ namespace CustomLinkedList
         {
             string[] array = new string[Count];
             int counter = 0;
-            T current_node = _head;
+            T current_node = Head;
             while (current_node != null)
             {
                 array[counter] = current_node.Value;

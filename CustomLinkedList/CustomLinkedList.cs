@@ -14,15 +14,15 @@ namespace CustomLinkedList
         {
             Node new_node = new Node(value);
 
-            if (_head == null)
+            if (Head == null)
             {
-                _head = new_node;
+                Head = new_node;
             }
             else
             {
-                _tail.Next = new_node;
+                Tail.Next = new_node;
             }
-            _tail = new_node;
+            Tail = new_node;
             Count++;
         }
 
@@ -34,7 +34,7 @@ namespace CustomLinkedList
         public override bool DeleteNode(string value)
         {
             Node previous = null;
-            Node current = _head;
+            Node current = Head;
             while (current != null)
             {
                 if (current.Value.Equals(value))
@@ -44,16 +44,16 @@ namespace CustomLinkedList
                         previous.Next = current.Next;
                         if (current.Next == null)
                         {
-                            _tail = previous;
+                            Tail = previous;
                         }                    
                                                
                     }
                     else
                     {
-                        _head = _head.Next;
-                        if (_head == null)
+                        Head = Head.Next;
+                        if (Head == null)
                         {
-                            _tail = null;
+                            Tail = null;
                         }
                     }
                     Count--;

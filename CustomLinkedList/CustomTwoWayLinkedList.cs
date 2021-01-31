@@ -10,21 +10,21 @@ namespace CustomLinkedList
         {
             TwoWayNode new_node = new TwoWayNode(value);
 
-            if (_head == null)
+            if (Head == null)
             {
-                _head = new_node;
+                Head = new_node;
             }
             else
             {
-                _tail.Next = new_node;
-                new_node.Previous = _tail;
+                Tail.Next = new_node;
+                new_node.Previous = Tail;
             }
 
-            _tail = new_node;
+            Tail = new_node;
             Count++;
         }
 
-        protected override bool DeleteNode(string value)
+        public override bool DeleteNode(string value)
         {
             throw new NotImplementedException();
         }

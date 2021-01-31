@@ -5653,9 +5653,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test2\\LinkedList\\CustomLinkedList\\CustomLinkedListTest\\CustomLinkedListTest.csproj",
-      "projectName": "CustomLinkedListTest",
-      "projectPath": "D:\\Test2\\LinkedList\\CustomLinkedList\\CustomLinkedListTest\\CustomLinkedListTest.csproj",
+      "projectUniqueName": "D:\\Test2\\LinkedList\\CustomLinkedList\\CustomLinkedListTest\\CustomLinkedList.UnitTest.csproj",
+      "projectName": "CustomLinkedList.UnitTest",
+      "projectPath": "D:\\Test2\\LinkedList\\CustomLinkedList\\CustomLinkedListTest\\CustomLinkedList.UnitTest.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
       "outputPath": "D:\\Test2\\LinkedList\\CustomLinkedList\\CustomLinkedListTest\\obj\\",
       "projectStyle": "PackageReference",
