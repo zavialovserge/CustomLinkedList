@@ -22,6 +22,7 @@ namespace CustomLinkedList
             {
                 Tail.Next = new_node;
             }
+
             Tail = new_node;
             Count++;
         }

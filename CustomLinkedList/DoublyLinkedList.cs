@@ -26,7 +26,37 @@ namespace CustomLinkedList
 
         public override bool DeleteNode(string value)
         {
-            throw new NotImplementedException();
+            TwoWayNode previous = null;
+            TwoWayNode current = Head;
+            while (current != null)
+            {
+                if (current.Value.Equals(value))
+                {
+                    if (previous != null)
+                    {
+                        previous.Next = current.Next;
+                        if (current.Next == null)
+                        {
+                            Tail = previous;
+                        }
+                    }
+                    else
+                    {
+                        Head = Head.Next;
+                        if (Head == null)
+                        {
+                            Tail = null;
+                        }
+                    }
+                    Count--;
+                    return true;
+                }
+
+                previous = current;
+                current = current.Next;
+
+            }
+            return false;
         }
     }
 }
