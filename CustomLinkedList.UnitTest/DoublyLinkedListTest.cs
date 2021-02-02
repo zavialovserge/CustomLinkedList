@@ -148,27 +148,27 @@ namespace CustomLinkedList.UnitTest
         public void Delete_Element_Count_Decrease()
         {
             int count = _customList.Count;
-            _customList.DeleteNode("Test1");
+            _customList.Remove("Test1");
             Assert.AreEqual(count-1,_customList.Count);
         }
         [TestMethod]
         public void Delete_Exist_Element()
         {      
-            Assert.IsTrue(_customList.DeleteNode(_customList.Head.Value));
+            Assert.IsTrue(_customList.Remove(_customList.Head.Value));
 
         }
         [TestMethod]
         public void Delete_Not_Exist_Element()
         {
             TwoWayNode NotExistNode = new TwoWayNode("Test");
-            Assert.IsFalse(_customList.DeleteNode(NotExistNode.Value));
+            Assert.IsFalse(_customList.Remove(NotExistNode.Value));
 
         }
         [TestMethod]
         public void Delete_Head_Middle_Change_To_Head()
         {
             TwoWayNode node = _customList.Head.Next;
-            _customList.DeleteNode(_customList.Head.Value);
+            _customList.Remove(_customList.Head.Value);
 
             Assert.AreEqual(node.Value, _customList.Head.Value);
 
@@ -179,7 +179,7 @@ namespace CustomLinkedList.UnitTest
         public void Delete_Middle_Previous_Next_In_Head_Equal_To_Previous_Tail()
         {
             TwoWayNode node = _customList.Head.Next;
-            _customList.DeleteNode(node.Value);
+            _customList.Remove(node.Value);
 
             Assert.AreEqual(_customList.Head.Next.Value, _customList.Tail.Value);
 
@@ -191,7 +191,7 @@ namespace CustomLinkedList.UnitTest
             _customList.Head = null;
             _customList.Tail = null;
             
-            Assert.IsFalse(_customList.DeleteNode(node.Value));
+            Assert.IsFalse(_customList.Remove(node.Value));
 
 
         }
@@ -203,7 +203,7 @@ namespace CustomLinkedList.UnitTest
             _customList.Tail = null;
             _customList.Count = 0;
             _customList.Append("Test1");           
-            Assert.IsTrue(_customList.DeleteNode(node.Value));
+            Assert.IsTrue(_customList.Remove(node.Value));
         }
         [TestMethod]
         public void Check_Count_Delete_In_One_Element_List()
@@ -214,7 +214,7 @@ namespace CustomLinkedList.UnitTest
             _customList.Count = 0;
             _customList.Append("Test1");
             int count = _customList.Count;
-            _customList.DeleteNode(node.Value);
+            _customList.Remove(node.Value);
             Assert.AreEqual(count-1,_customList.Count);
         }
         [TestMethod]
@@ -225,7 +225,7 @@ namespace CustomLinkedList.UnitTest
             _customList.Tail = null;
             _customList.Count = 0;
             _customList.Append("Test1");
-            _customList.DeleteNode(node.Value);
+            _customList.Remove(node.Value);
             Assert.IsNull(_customList.Head);
         }
     }

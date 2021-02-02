@@ -38,7 +38,7 @@ namespace CustomLinkedList
         /// <returns> true if the element containing value is successfully removed; otherwise, false.
         //     This method also returns false if value was not found in the original
         /// </returns>
-        public override bool DeleteNode(string value)
+        public override bool Remove(string value)
         {
             TwoWayNode previous = null;
             TwoWayNode current = Head;

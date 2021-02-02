@@ -23,7 +23,7 @@ namespace CustomLinkedList
         /// </summary>
         /// <param name="value">Value</param>
         public abstract void Append(string value);
-        public abstract bool DeleteNode(string value);
+        public abstract bool Remove(string value);
         /// <summary>
         /// Determines whether a value is in the LinkedList
         /// </summary>
@@ -67,6 +67,6 @@ namespace CustomLinkedList
         /// <summary>
         /// Gets the number of nodes actually contained in Linked List
         /// </summary>
-        public int Count { get;  }
+        public int Count { get; set; }
     }
 }

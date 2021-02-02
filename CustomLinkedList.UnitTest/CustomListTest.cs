@@ -71,15 +71,6 @@ namespace CustomLinkedList.UnitTest
             Assert.IsNull(result);
         }
         
-        //[TestMethod]
-        //public void Check_Null_Adiing()
-        //{
-        //    _customList.Append(null);
-        //    Node node = new Node(null);
-        //    Node result = _customList.ContainsValue(null);
-        //    Assert.AreEqual(node.Value,result.Value);
-        //}
-
         [DataTestMethod]
         [DataRow(new string[] { "Test1", "Test2", "Test3" })]
         [DataRow(new string[] { "1" })]
@@ -112,13 +103,13 @@ namespace CustomLinkedList.UnitTest
         [TestMethod]
         public void Check_Decrease_Count_List_After_Delete()
         {
-            _customList.DeleteNode("Test1");
+            _customList.Remove("Test1");
             Assert.AreEqual(2, _customList.Count);
         }
         [TestMethod]
         public void Check_Not_Decrease_Count_List_After_Delete_Not_Exist_Value()
         {
-            _customList.DeleteNode("Test");
+            _customList.Remove("Test");
             Assert.AreEqual(3, _customList.Count);
         }
         [DataTestMethod]
@@ -127,7 +118,7 @@ namespace CustomLinkedList.UnitTest
         [DataRow("Test3")]
         public void Check_Delete_Exist_Value(string value)
         {
-            Assert.IsTrue(_customList.DeleteNode(value));
+            Assert.IsTrue(_customList.Remove(value));
         }
         [DataTestMethod]
         [DataRow("123")]
@@ -137,7 +128,7 @@ namespace CustomLinkedList.UnitTest
         [DataRow(null)]
         public void Check_Delete_Not_Exist_Value(string value)
         {
-            Assert.IsFalse(_customList.DeleteNode(value));
+            Assert.IsFalse(_customList.Remove(value));
         }
 
         [TestMethod]
@@ -146,7 +137,7 @@ namespace CustomLinkedList.UnitTest
             Node head_before_delete = _customList.Head;
             Node nextNode = _customList.Head.Next;
 
-            _customList.DeleteNode(head_before_delete.Value);
+            _customList.Remove(head_before_delete.Value);
 
             Assert.AreEqual(nextNode.Value,_customList.Head.Value);
         }
@@ -156,7 +147,7 @@ namespace CustomLinkedList.UnitTest
         {
             Node tail_before_delete = _customList.Tail;           
 
-            _customList.DeleteNode(tail_before_delete.Value);
+            _customList.Remove(tail_before_delete.Value);
 
             Assert.AreNotEqual(tail_before_delete.Value, _customList.Tail.Value);
         }
