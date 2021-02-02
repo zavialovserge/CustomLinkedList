@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CustomLinkedList
+﻿namespace CustomLinkedList
 {
     /// <summary>
     /// Represents an abstract  linked list
@@ -23,6 +19,11 @@ namespace CustomLinkedList
         /// </summary>
         /// <param name="value">Value</param>
         public abstract void Append(string value);
+        /// <summary>
+        /// Remove value from AbstatractLinkedList
+        /// </summary>
+        /// <param name="value">value</param>
+        /// <returns></returns>
         public abstract bool Remove(string value);
         /// <summary>
         /// Determines whether a value is in the LinkedList

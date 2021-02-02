@@ -99,7 +99,6 @@ namespace CustomLinkedList.UnitTest
         [DataRow("Test")]
         public void Check_Value_Not_Exist(string value)
         {
-            Node node = new Node(value);
             Node result = _customList.ContainsValue(value);
             Assert.IsNull(result);
         }

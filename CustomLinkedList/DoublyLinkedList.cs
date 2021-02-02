@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CustomLinkedList
+﻿namespace CustomLinkedList
 {
     /// <summary>
     /// Represents a Doubly linked list
@@ -11,7 +7,7 @@ namespace CustomLinkedList
     {
 
         /// <summary>
-        /// Adds the specified value at the end of DoublyLinkedList
+        /// Adds value at the end of DoublyLinkedList
         /// </summary>
         /// <param name="value">Value</param>
         public override void Append(string value)
@@ -32,7 +28,7 @@ namespace CustomLinkedList
             Count++;
         }
         /// <summary>
-        ///  Removes the node at the end of the DoublyLinkedList
+        ///  Removes value at the end of the DoublyLinkedList
         /// </summary>
         /// <param name="value">Value</param>
         /// <returns> true if the element containing value is successfully removed; otherwise, false.

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CustomLinkedList
+﻿namespace CustomLinkedList
 {
     /// <summary>
-    ///  Represents a node in a AbstractNode. This class cannot
-    //     be inherited.
+    ///  Represents a node in a AbstractNode.
     /// </summary>
     public class Node : AbstractNode<Node>
     {

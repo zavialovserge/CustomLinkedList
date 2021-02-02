@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CustomLinkedList
+﻿namespace CustomLinkedList
 {
     /// <summary>
     /// Represents a one way linked list
@@ -10,7 +6,7 @@ namespace CustomLinkedList
     public class CustomLinkedList : AbstatractLinkedList<Node>
     {
         /// <summary>
-        /// Adding to the end of the linked list
+        /// Adding value to the end of the linked list
         /// </summary>
         /// <param name="value">value</param>
         public override void Append(string value)
