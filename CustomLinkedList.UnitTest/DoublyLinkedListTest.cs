@@ -11,16 +11,19 @@ namespace CustomLinkedList.UnitTest
         public void SetUp()
         {
             _customList = new DoublyLinkedList();
-            _customList.Append("Test1");
-            _customList.Append("Test2");
-            _customList.Append("Test3");
+            TwoWayNode head = new TwoWayNode("Test1");
+            TwoWayNode middle = new TwoWayNode("Test2");
+            TwoWayNode tail = new TwoWayNode("Test3");
+            _customList.Head = head;
+            _customList.Head.Next = middle;
+            _customList.Head.Next.Next = tail;
+            _customList.Head.Next.Previous = _customList.Head;
+            _customList.Tail = tail;
+            _customList.Tail.Previous = _customList.Head.Next;
+            _customList.Count = 3;
         }
 
-        [TestMethod]
-        public void Check_List_Count()
-        {
-            Assert.AreEqual(3, _customList.Count);
-        }
+
         [TestMethod]
         public void Check_Head_Value()
         {
@@ -37,7 +40,7 @@ namespace CustomLinkedList.UnitTest
 
         [TestMethod]
         public void Check_Previous_Middle_Is_Head_Value()
-        {            
+        {
             Assert.AreEqual(_customList.Head.Value, _customList.Head.Next.Previous.Value);
         }
         [TestMethod]
@@ -50,14 +53,53 @@ namespace CustomLinkedList.UnitTest
         {
             Assert.IsNull(_customList.Tail.Next);
         }
+        [TestMethod]
+        public void Append_Element_In_Tail()
+        {
+            TwoWayNode node = new TwoWayNode("Test4");
+            _customList.Append(node.Value);
+            Assert.AreEqual(_customList.Tail.Value, node.Value);
+        }
+        [TestMethod]
+        public void Append_Element_In_Tail_Check_Count()
+        {
+            TwoWayNode node = new TwoWayNode("Test4");
+            int count = _customList.Count;
+            _customList.Append(node.Value);
+            Assert.AreEqual(_customList.Count, count+1);
+        }
+        [TestMethod]
+        public void Append_Element_In_Tail_Check_Previous_Element()
+        {
 
+            TwoWayNode node = new TwoWayNode("Test4");
+            TwoWayNode node_previous = _customList.Tail;
+            _customList.Append(node.Value);
+
+            Assert.AreEqual(_customList.Tail.Previous.Value, node_previous.Value);
+        }
+        [TestMethod]
+        public void Append_Element_Check_Next_Element_In_Previous()
+        {
+            TwoWayNode node = new TwoWayNode("Test4");
+            _customList.Append(node.Value);
+            var previous_node = _customList.Tail.Previous;
+            Assert.AreEqual(previous_node.Next.Value, node.Value);
+        }
+        [TestMethod]
+        public void Append_Element_In_Tail_Check_Next_Element_Is_Null()
+        {
+            TwoWayNode node = new TwoWayNode("Test4");
+            _customList.Append(node.Value);
+            Assert.IsNull(_customList.Tail.Next);
+        }
         [DataTestMethod]
         [DataRow("Test1")]
         [DataRow("Test2")]
         [DataRow("Test3")]
         public void Check_Value_Exist(string value)
         {
-            Node node = new Node(value);
+            TwoWayNode node = new TwoWayNode(value);
             var result = _customList.ContainsValue(value);
             Assert.AreEqual(node.Value, result.Value);
         }
@@ -102,6 +144,89 @@ namespace CustomLinkedList.UnitTest
             Assert.IsFalse(Enumerable.SequenceEqual(values, _customList.GetAllValues()));
         }
 
+        [TestMethod]
+        public void Delete_Element_Count_Decrease()
+        {
+            int count = _customList.Count;
+            _customList.DeleteNode("Test1");
+            Assert.AreEqual(count-1,_customList.Count);
+        }
+        [TestMethod]
+        public void Delete_Exist_Element()
+        {      
+            Assert.IsTrue(_customList.DeleteNode(_customList.Head.Value));
 
+        }
+        [TestMethod]
+        public void Delete_Not_Exist_Element()
+        {
+            TwoWayNode NotExistNode = new TwoWayNode("Test");
+            Assert.IsFalse(_customList.DeleteNode(NotExistNode.Value));
+
+        }
+        [TestMethod]
+        public void Delete_Head_Middle_Change_To_Head()
+        {
+            TwoWayNode node = _customList.Head.Next;
+            _customList.DeleteNode(_customList.Head.Value);
+
+            Assert.AreEqual(node.Value, _customList.Head.Value);
+
+        }
+       
+
+        [TestMethod]
+        public void Delete_Middle_Previous_Next_In_Head_Equal_To_Previous_Tail()
+        {
+            TwoWayNode node = _customList.Head.Next;
+            _customList.DeleteNode(node.Value);
+
+            Assert.AreEqual(_customList.Head.Next.Value, _customList.Tail.Value);
+
+        }
+        [TestMethod]
+        public void Delete_In_Empty_List()
+        {
+            TwoWayNode node = _customList.Head;
+            _customList.Head = null;
+            _customList.Tail = null;
+            
+            Assert.IsFalse(_customList.DeleteNode(node.Value));
+
+
+        }
+        [TestMethod]
+        public void Delete_In_One_Element_List()
+        {
+            TwoWayNode node = _customList.Head;
+            _customList.Head = null;
+            _customList.Tail = null;
+            _customList.Count = 0;
+            _customList.Append("Test1");           
+            Assert.IsTrue(_customList.DeleteNode(node.Value));
+        }
+        [TestMethod]
+        public void Check_Count_Delete_In_One_Element_List()
+        {
+            TwoWayNode node = _customList.Head;
+            _customList.Head = null;
+            _customList.Tail = null;
+            _customList.Count = 0;
+            _customList.Append("Test1");
+            int count = _customList.Count;
+            _customList.DeleteNode(node.Value);
+            Assert.AreEqual(count-1,_customList.Count);
+        }
+        [TestMethod]
+        public void Check_Head_Is_Null_In_One_Element_List()
+        {
+            TwoWayNode node = _customList.Head;
+            _customList.Head = null;
+            _customList.Tail = null;
+            _customList.Count = 0;
+            _customList.Append("Test1");
+            _customList.DeleteNode(node.Value);
+            Assert.IsNull(_customList.Head);
+        }
     }
 }

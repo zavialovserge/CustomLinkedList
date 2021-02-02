@@ -39,18 +39,31 @@ namespace CustomLinkedList
                         {
                             Tail = previous;
                         }
+                        else
+                        {
+                            current.Next.Previous = previous;
+
+                        }
+                        Count--;
+
                     }
                     else
                     {
-                        Head = Head.Next;
-                        if (Head == null)
+                        if (Count == 1)
                         {
+                            Head = null;
                             Tail = null;
                         }
+                        else
+                        {
+                            Head = current.Next;
+                            Head.Previous = null;                            
+                        }
+                        Count--;
+                        return true;
                     }
-                    Count--;
-                    return true;
                 }
+
 
                 previous = current;
                 current = current.Next;

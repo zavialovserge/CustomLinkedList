@@ -11,17 +11,18 @@ namespace CustomLinkedList.UnitTest
         public void SetUp()
         {
             _customList = new CustomLinkedList();
-            _customList.Append("Test1");
-            _customList.Append("Test2");
-            _customList.Append("Test3");
+            Node head = new Node("Test1");
+            Node middle = new Node("Test2");
+            Node tail = new Node("Test3");
+            _customList.Head = head;
+            _customList.Head.Next = middle;
+            _customList.Head.Next.Next = tail;
+            _customList.Tail = tail;
+            _customList.Count = 3;
         }
 
 
-        [TestMethod]
-        public void Check_List_Count()
-        {
-            Assert.AreEqual(3, _customList.Count);
-        }
+        
         [TestMethod]
         public void Check_Head_Value()
         {

@@ -6,3 +6,4 @@ D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\C
 D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\CustomLinkedList.csproj.CoreCompileInputs.cache
 D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\CustomLinkedList.dll
 D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\CustomLinkedList.pdb
+D:\Test2\LinkedList\CustomLinkedList\CustomLinkedList\obj\Debug\netstandard2.0\CustomLinkedList.csprojAssemblyReference.cache
