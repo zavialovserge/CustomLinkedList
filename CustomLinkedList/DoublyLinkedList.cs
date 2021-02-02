@@ -4,8 +4,16 @@ using System.Text;
 
 namespace CustomLinkedList
 {
+    /// <summary>
+    /// Represents a Doubly linked list
+    /// </summary>
     public class DoublyLinkedList : AbstatractLinkedList<TwoWayNode>
     {
+
+        /// <summary>
+        /// Adds the specified value at the end of DoublyLinkedList
+        /// </summary>
+        /// <param name="value">Value</param>
         public override void Append(string value)
         {
             TwoWayNode new_node = new TwoWayNode(value);
@@ -23,7 +31,13 @@ namespace CustomLinkedList
             Tail = new_node;
             Count++;
         }
-
+        /// <summary>
+        ///  Removes the node at the end of the DoublyLinkedList
+        /// </summary>
+        /// <param name="value">Value</param>
+        /// <returns> true if the element containing value is successfully removed; otherwise, false.
+        //     This method also returns false if value was not found in the original
+        /// </returns>
         public override bool DeleteNode(string value)
         {
             TwoWayNode previous = null;

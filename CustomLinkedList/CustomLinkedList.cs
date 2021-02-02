@@ -4,6 +4,9 @@ using System.Text;
 
 namespace CustomLinkedList
 {
+    /// <summary>
+    /// Represents a one way linked list
+    /// </summary>
     public class CustomLinkedList : AbstatractLinkedList<Node>
     {
         /// <summary>
@@ -28,10 +31,12 @@ namespace CustomLinkedList
         }
 
         /// <summary>
-        /// Delete node from linked List
+        ///  Removes the node at the end of the CustomLinkedList
         /// </summary>
-        /// <param name="node">Node</param>
-        /// <returns></returns>
+        /// <param name="value">Value</param>
+        /// <returns> true if the element containing value is successfully removed; otherwise, false.
+        //     This method also returns false if value was not found in the original
+        /// </returns>
         public override bool DeleteNode(string value)
         {
             Node previous = null;

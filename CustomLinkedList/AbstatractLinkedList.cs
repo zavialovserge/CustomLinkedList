@@ -4,6 +4,10 @@ using System.Text;
 
 namespace CustomLinkedList
 {
+    /// <summary>
+    /// Represents an abstract  linked list
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class AbstatractLinkedList<T> where T : AbstractNode<T>
     {
         /// <summary>
@@ -14,13 +18,20 @@ namespace CustomLinkedList
         /// Last element
         /// </summary>
         public T Tail { get; set; }
+        /// <summary>
+        ///  Adds the specified value at the end of LinkedList
+        /// </summary>
+        /// <param name="value">Value</param>
         public abstract void Append(string value);
         public abstract bool DeleteNode(string value);
         /// <summary>
-        /// 
+        /// Determines whether a value is in the LinkedList
         /// </summary>
         /// <param name="value">Value</param>
-        /// <returns>If it contains return Node else return null</returns>
+        /// <returns> // Returns:
+        //     existing AbstractNode if value is found in the LinkedList; otherwise,
+        //     null.
+        //</returns>
         public T ContainsValue(string value)
         {
             T current_node = Head;
@@ -53,7 +64,9 @@ namespace CustomLinkedList
             }
             return array;
         }
-
-        public int Count { get; set; }
+        /// <summary>
+        /// Gets the number of nodes actually contained in Linked List
+        /// </summary>
+        public int Count { get;  }
     }
 }

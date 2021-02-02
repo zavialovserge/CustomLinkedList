@@ -4,6 +4,11 @@ using System.Text;
 
 namespace CustomLinkedList
 {
+
+    /// <summary>
+    /// Represent Abstraction Node
+    /// </summary>
+    /// <typeparam name="T">AbstractNode</typeparam>
     public abstract class AbstractNode<T>
     {
         public string Value { get; set; }
