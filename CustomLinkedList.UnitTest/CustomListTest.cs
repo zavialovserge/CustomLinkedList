@@ -49,6 +49,39 @@ namespace CustomLinkedList.UnitTest
             Assert.AreEqual(value, _customList.Tail.Value);
         }
 
+        [TestMethod]
+        public void Append_Element_In_Tail()
+        {
+            Node node = new Node("Test4");
+            _customList.Append(node.Value);
+            Assert.AreEqual(_customList.Tail.Value, node.Value);
+        }
+
+
+        [TestMethod]
+        public void Append_Element_In_Tail_Check_Next_For_Null()
+        {
+            Node node = new Node("Test4");
+            _customList.Append(node.Value);
+            Assert.IsNull(_customList.Tail.Next);
+        }
+        [TestMethod]
+        public void Append_Element_In_Tail_Check_Next_In_Previous_Tail()
+        {
+            
+            Node node = new Node("Test4");           
+            _customList.Append(node.Value);
+            Node previousTail = _customList.Head.Next.Next;
+            Assert.AreEqual(previousTail.Next.Value, _customList.Tail.Value);
+        }
+        [TestMethod]
+        public void Append_Element_In_Tail_Check_Count()
+        {
+            Node node = new Node("Test4");
+            int count = _customList.Count;
+            _customList.Append(node.Value);
+            Assert.AreEqual(_customList.Count, count+1);
+        }
         [DataTestMethod]
         [DataRow("Test1")]
         [DataRow("Test2")]
